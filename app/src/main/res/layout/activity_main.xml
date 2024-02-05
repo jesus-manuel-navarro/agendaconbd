@@ -40,11 +40,20 @@
             android:layout_height="wrap_content"
             android:text="consulta" />
 
-        <TextView
-            android:id="@+id/textView"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Resultado de la consulta"
-            android:text="" />
+            android:layout_height="match_parent" >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical" >
+                            <TextView
+                                android:id="@+id/textView"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Resultado de la consulta"
+                                android:text="" />
+            </LinearLayout>
+        </ScrollView>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -50,20 +50,26 @@ class MainActivity : AppCompatActivity() {
         }  // todo fin de salvar
         consltaButton.setOnClickListener {
 
-            val contacList = db.getAllContacts()
-            /* todo este for ya no hace falta porque tenemos el joinToString()
+            val contacList:List<Contact> = db.getAllContacts()  // es de tipo List<Contact> si no se lo pones lo infiere, pero NO es un String
+            // todo este for ya no hace falta porque tenemos el joinToString()
             // implementado en la siguiente variable
-            for (contact in contacList)
+            for (contact in contacList){
                 contact.name
                 contact.email
-                if(contact.id==variableBusqueda){
+                bosquejo.append(contact.name+" "+contact.email+"\n") // todo sustituimos el .text por el append
+                //todo para que en lugar de sobreescribir añada
+              //  if(contact.id==variableBusqueda){}
 
                 }
-                Log.d("Contacts","ID: ${contact.id}, Nombre: ${contact.name}, Email: ${contact.email}")
-            */
+              //  Log.d("Contacts","ID: ${contact.id}, Nombre: ${contact.name}, Email: ${contact.email}")
+
+            /*
             val resultadoBD =contacList.joinToString()  //todo este joinToString() recorre toda la coleccion
                                                         //todo y lo esta metiendo en la variable
+                                                       // todo el joinToString() lo cambia el List<Contact> a String
             bosquejo.text=resultadoBD
+            */
+
         }// todo fin de consultabutton
     }
 }
