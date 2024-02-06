@@ -11,11 +11,13 @@ class DatabaseHander(context:Context) : SQLiteOpenHelper( context, DATABASE_NAME
     companion object{  // todo para no tener que instanciar la clase con variables, es como una clase dentro de otra clase
         //todo accedes a sus propiedades sin instanciarla
         private const val DATABASE_NAME = "MyDataBase"
-        private const val DATAVASE_VERSION = 1
+        private const val DATAVASE_VERSION = 2 // todo en esta rama cambiamos la version y asi no hace falta
+                                               // todo cambiar la base de datos
         private const val TABLE_NAME ="Contacts"
         private const val KEY_ID ="id"
         private const val KEY_NAME = "nombre"
         private const val KEY_EMAIL = "email"
+        private const val KEY_PROV = "provincia"
     }
     // todo necesita estos metodos sobreescritos
     override fun onCreate(db: SQLiteDatabase?) {  //todo el interrogante es para no tener que preguntar si la bd es nula o no

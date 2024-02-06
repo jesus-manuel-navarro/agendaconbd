@@ -12,6 +12,8 @@ import android.widget.Toast
 class MainActivity : AppCompatActivity() {
     private lateinit var nameEditText: EditText
     private lateinit var emailEditText:EditText
+    private lateinit var provinEditText: EditText
+    private lateinit var buscaprovEditText:EditText
     private lateinit var salvar:Button
     private lateinit var consltaButton:Button
     private lateinit var bosquejo:TextView
@@ -22,6 +24,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         nameEditText = findViewById(R.id.editTextText)
         emailEditText = findViewById(R.id.editTextText2)
+        provinEditText = findViewById(R.id.editTextText3)
+        buscaprovEditText = findViewById(R.id.editTextText4)
         consltaButton = findViewById(R.id.button2)
         bosquejo = findViewById(R.id.textView)
         salvar = findViewById(R.id.button)
