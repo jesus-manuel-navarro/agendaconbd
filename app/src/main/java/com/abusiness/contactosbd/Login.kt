@@ -32,6 +32,7 @@ class Login : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
     }
     fun forgotPassword(view:View) {
+        startActivity(Intent(this,ForgotPass::class.java))
     }
     fun registrar(view:View) {
         startActivity(Intent(this,Registrar::class.java))
@@ -42,8 +43,7 @@ class Login : AppCompatActivity() {
     private fun loginUser(){
         val user:String = txtUser.text.toString()
         val password:String = txtPassword.text.toString()
-        if(!TextUtils.isEmpty(user) &&
-            !TextUtils.isEmpty(password)){
+        if(!TextUtils.isEmpty(user) && !TextUtils.isEmpty(password)){ //todo TextUtils.isEmpty(   ) es una clase de android
             progressBarLogin.visibility = View.VISIBLE
             auth.signInWithEmailAndPassword(user,password).addOnCompleteListener(this){
                     task->
