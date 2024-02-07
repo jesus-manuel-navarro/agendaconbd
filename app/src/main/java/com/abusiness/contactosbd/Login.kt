@@ -32,7 +32,7 @@ class Login : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
     }
     fun forgotPassword(view:View) {
-        startActivity(Intent(this,ForgotPass::class.java))
+        startActivity(Intent(this,ForgotPass::class.java))  //todo esto falta en los apuntes
     }
     fun registrar(view:View) {
         startActivity(Intent(this,Registrar::class.java))
