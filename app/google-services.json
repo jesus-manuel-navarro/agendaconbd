@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "727576688552",
+    "project_id": "contactosbd-d3fcc",
+    "storage_bucket": "contactosbd-d3fcc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:727576688552:android:9bb1a6fedbc63e2f78cf9d",
+        "android_client_info": {
+          "package_name": "com.abusiness.contactosbd"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD4UD4lKSnZoug1gf7KJ_L_7wQNrLJ1NTQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

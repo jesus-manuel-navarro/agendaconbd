@@ -36,7 +36,8 @@ class DatabaseHander(context:Context) : SQLiteOpenHelper( context, DATABASE_NAME
         val values = ContentValues()  // todo crea un conjunto / listas / pares  de valores
         values.put (KEY_NAME,name)
         values.put (KEY_EMAIL,email)
-        val success = db.insert(TABLE_NAME,null, values) // todo por si acaso no pone valores se pone el null
+        val success = db.insert(TABLE_NAME,null, values)
+        // todo por si acaso no pone valores se pone el null
        // db.close()
              return  (success) // todo retorna el valor del exito o el fracos del que programa esta cachimba
     }  // fin addContact
