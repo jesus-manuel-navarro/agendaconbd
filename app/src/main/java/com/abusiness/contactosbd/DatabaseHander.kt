@@ -31,14 +31,15 @@ class DatabaseHander(context:Context) : SQLiteOpenHelper( context, DATABASE_NAME
         onCreate(db)
     }
 
-    fun addContact(name:String, email:String):Long{
+    fun addContact(name:String, email:String, provincia:String):Long{
         val db = this.writableDatabase  // todo esto abre la base de datos en ese momento abierta
         val values = ContentValues()  // todo crea un conjunto / listas / pares  de valores
         values.put (KEY_NAME,name)
         values.put (KEY_EMAIL,email)
+        values.put (KEY_PROV,provincia)
         val success = db.insert(TABLE_NAME,null, values)
         // todo por si acaso no pone valores se pone el null
-       // db.close()
+        db.close()
              return  (success) // todo retorna el valor del exito o el fracos del que programa esta cachimba
     }  // fin addContact
     @SuppressLint("Range")
@@ -54,9 +55,9 @@ class DatabaseHander(context:Context) : SQLiteOpenHelper( context, DATABASE_NAME
                     val id=it.getInt(it.getColumnIndex(KEY_ID))
                     val name = it.getString(it.getColumnIndex(KEY_NAME))
                     val email= it.getString(it.getColumnIndex(KEY_EMAIL))
-
+                    val provincia= it.getString(it.getColumnIndex(KEY_PROV))
                //todo guardamos estos valores en la clase data Contact
-                    val contact = Contact(id,name,email)
+                    val contact = Contact(id,name,email,provincia)
 
                     // todo lo de arriba se puede
                     contactList.add(contact)

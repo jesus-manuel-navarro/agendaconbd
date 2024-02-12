@@ -16,6 +16,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var buscaprovEditText:EditText
     private lateinit var salvar:Button
     private lateinit var consltaButton:Button
+    private lateinit var consltaPorProv:Button
     private lateinit var bosquejo:TextView
     private lateinit var db:DatabaseHander
     @SuppressLint("MissingInflatedId")
@@ -29,6 +30,7 @@ class MainActivity : AppCompatActivity() {
         consltaButton = findViewById(R.id.button2)
         bosquejo = findViewById(R.id.textView)
         salvar = findViewById(R.id.button)
+        consltaPorProv = findViewById(R.id.button3)
 
         //todo llama a la clase para acceder a todos los metodos de la clase
         db= DatabaseHander(this)  // todo instancia la clase DatabaseHander
@@ -37,11 +39,13 @@ class MainActivity : AppCompatActivity() {
         salvar.setOnClickListener {
             val name = nameEditText.text.toString().trim()
             val email = emailEditText.text.toString().trim()
+            val provincia = provinEditText.text.toString().trim()
             if  (name.isNotEmpty() && email.isNotEmpty()){
-                val id=db.addContact(name,email) // todo devuelve una referencia exitosa o no
+                val id=db.addContact(name,email,provincia) // todo devuelve una referencia exitosa o no
                 if (id == -1L){
                     nameEditText.text.clear()
                     emailEditText.text.clear()
+                    provinEditText.text.clear()
                 }
                     else{
                         // todo aqui iria un toast avisando de error
@@ -53,14 +57,15 @@ class MainActivity : AppCompatActivity() {
             }
         }  // todo fin de salvar
         consltaButton.setOnClickListener {
-
+            bosquejo.text=" "
             val contacList:List<Contact> = db.getAllContacts()  // es de tipo List<Contact> si no se lo pones lo infiere, pero NO es un String
             // todo este for ya no hace falta porque tenemos el joinToString()
             // implementado en la siguiente variable
             for (contact in contacList){
                 contact.name
                 contact.email
-                bosquejo.append(contact.name+" "+contact.email+"\n") // todo sustituimos el .text por el append
+                contact.provincia
+                bosquejo.append(contact.name+" "+contact.email+" "+contact.provincia+"\n") // todo sustituimos el .text por el append
                 //todo para que en lugar de sobreescribir añada
               //  if(contact.id==variableBusqueda){}
 
@@ -75,5 +80,23 @@ class MainActivity : AppCompatActivity() {
             */
 
         }// todo fin de consultabutton
+        consltaPorProv.setOnClickListener {
+            bosquejo.text=" "
+
+            val busqPorProv = buscaprovEditText.text.toString().trim()
+            val contacList:List<Contact> = db.getAllContacts()  // es de tipo List<Contact> si no se lo pones lo infiere, pero NO es un String
+            // todo este for ya no hace falta porque tenemos el joinToString()
+            // implementado en la siguiente variable
+            for (contact in contacList){
+                contact.name
+                contact.email
+                contact.provincia
+                if(contact.provincia==busqPorProv) {
+                    bosquejo.append(contact.name + " " + contact.email + " " + contact.provincia + "\n") // todo sustituimos el .text por el append
+                } //todo para que en lugar de sobreescribir añada
+                //  if(contact.id==variableBusqueda){}
+
+            }
+        }
     }
 }
